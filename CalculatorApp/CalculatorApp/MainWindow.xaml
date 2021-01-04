@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Width="300" SizeToContent="Height">
+    <Window.Resources>
+        <Style x:Key="Font" TargetType="Control">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="{Binding Calculator.LastOperation}" HorizontalContentAlignment="Right" Style="{StaticResource Font}"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="{Binding Op}" HorizontalContentAlignment="Right" Style="{StaticResource Font}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Calculator.Memory}" Style="{StaticResource Font}"/>
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Content="{Binding Result}" HorizontalContentAlignment="Right" Style="{StaticResource Font}"/>
+        </Grid>
+        <ItemsControl ItemsSource="{Binding Buttons}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding}" Click="OnClick" Style="{StaticResource Font}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
 </Window>

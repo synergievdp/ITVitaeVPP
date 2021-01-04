@@ -24,6 +24,10 @@ namespace CalculatorApp {
             return Create(numerator, denominator);
         }
 
+        public static Fraction Create(Fraction other) {
+            return Create(other.numerator, other.denominator);
+        }
+
         public decimal ToDecimal() {
             return Decimal.Divide(this.numerator, this.denominator);
         }
@@ -31,6 +35,16 @@ namespace CalculatorApp {
         public override string ToString() {
             return ToDecimal().ToString("G27");
         }
+
+        //public string Display() {
+        //    string s = ToString();
+        //    string[] ss = s.Split(",");
+        //    if (ss.Length > 1 && ss[1].Length > 3) {
+        //        int number = this.numerator / this.denominator;
+        //        Fraction num = Fraction.Create(this.numerator % this.denominator, this.denominator).Simplify();
+        //        return String.Join(" ", number, String.Join("", num.numerator, "/", num.denominator));
+        //    } else return s;
+        //}
 
         public override bool Equals(Object obj) {
             return Equals(obj as Fraction);

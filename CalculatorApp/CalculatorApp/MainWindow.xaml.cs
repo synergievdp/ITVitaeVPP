@@ -18,8 +18,16 @@ namespace CalculatorApp {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        ViewModel ViewModel { get; set; }
         public MainWindow() {
             InitializeComponent();
+
+            ViewModel = new ViewModel();
+            DataContext = ViewModel;
+        }
+
+        void OnClick(object sender, EventArgs e) {
+            ViewModel.OnClick(sender, e);
         }
     }
 }
