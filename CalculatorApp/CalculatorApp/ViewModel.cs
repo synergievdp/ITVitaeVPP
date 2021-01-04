@@ -69,11 +69,11 @@ namespace CalculatorApp {
                 case "M+": Calculator.AddMemory(UserInput()); break;
                 case "M-": Calculator.SubtractMemory(UserInput()); break;
                 case "MR": Result = Calculator.RecallMemory().ToString(); break;
-                case "+/-": 
-                    Result = Calculator.Negate().ToString(); 
+                case "+/-":
+                    Result = Calculator.Negate(UserInput()).ToString(); 
                     break;
                 case "%": 
-                    Result = Calculator.Percentage().ToString(); 
+                    Result = Calculator.Percentage(UserInput()).ToString(); 
                     break;
                     
             }

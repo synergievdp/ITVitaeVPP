@@ -15,7 +15,7 @@ namespace CalculatorApp {
 
         public Calculator() {
             Clear();
-            Memory = Fraction.ZERO;
+            ClearMemory();
         }
 
         public Fraction Calculate(Fraction term1, Operator op, Fraction term2) {
@@ -53,20 +53,18 @@ namespace CalculatorApp {
 
         public void AddMemory(Fraction other) {
             Memory = Calculate(Memory, Operator.ADD, other);
-            OnPropertyChanged();
         }
 
         public void SubtractMemory(Fraction other) {
             Memory = Calculate(Memory, Operator.SUBTRACT, other);
-            OnPropertyChanged();
         }
 
-        public Fraction Percentage() {
-            return Calculate(Result, Operator.DIVIDE, Fraction.HUNDRED);
+        public Fraction Percentage(Fraction input) {
+            return Result = Calculate(input, Operator.DIVIDE, Fraction.HUNDRED);
         }
 
-        public Fraction Negate() {
-            return Result.Negate();
+        public Fraction Negate(Fraction input) {
+            return Result = input.Negate();
         }
     }
 }

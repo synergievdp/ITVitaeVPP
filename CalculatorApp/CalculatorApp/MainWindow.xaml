@@ -25,7 +25,7 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="{Binding Calculator.LastOperation}" HorizontalContentAlignment="Right" Style="{StaticResource Font}"/>
             <Label Grid.Row="0" Grid.Column="3" Content="{Binding Op}" HorizontalContentAlignment="Right" Style="{StaticResource Font}"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Calculator.Memory}" Style="{StaticResource Font}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Calculator.Memory}" HorizontalContentAlignment="Left" Style="{StaticResource Font}"/>
             <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Content="{Binding Result}" HorizontalContentAlignment="Right" Style="{StaticResource Font}"/>
         </Grid>
         <ItemsControl ItemsSource="{Binding Buttons}">

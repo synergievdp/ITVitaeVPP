@@ -6,11 +6,11 @@ namespace CalculatorApp {
     public class Fraction {
         public static Fraction ZERO => Create(0, 1);
         public static Fraction HUNDRED => Create(100, 1);
-        private int numerator;
-        private int denominator;
+        public int Numerator { get; private set; }
+        public int Denominator { get; private set; }
         private Fraction(int numerator, int denom) {
-            this.numerator = numerator;
-            this.denominator = denom;
+            this.Numerator = numerator;
+            this.Denominator = denom;
         }
 
         public static Fraction Create(int numerator, int denominator) {
@@ -25,11 +25,11 @@ namespace CalculatorApp {
         }
 
         public static Fraction Create(Fraction other) {
-            return Create(other.numerator, other.denominator);
+            return Create(other.Numerator, other.Denominator);
         }
 
         public decimal ToDecimal() {
-            return Decimal.Divide(this.numerator, this.denominator);
+            return Decimal.Divide(this.Numerator, this.Denominator);
         }
 
         public override string ToString() {
@@ -51,57 +51,57 @@ namespace CalculatorApp {
         }
 
         public bool Equals(Fraction other) {
-            return other != null && (this.numerator == other.numerator) && (this.denominator == other.denominator);
+            return other != null && (this.Numerator == other.Numerator) && (this.Denominator == other.Denominator);
         }
 
         public override int GetHashCode() {
-            return HashCode.Combine(numerator, denominator);
+            return HashCode.Combine(Numerator, Denominator);
         }
 
         public Fraction Add(Fraction other) {
-            if (this.denominator != other.denominator)
+            if (this.Denominator != other.Denominator)
                 this.CommonDenom(other);
-            this.numerator += other.numerator;
+            this.Numerator += other.Numerator;
             return this.Simplify();
         }
 
         public Fraction Subtract(Fraction other) {
-            if (this.denominator != other.denominator)
+            if (this.Denominator != other.Denominator)
                 this.CommonDenom(other);
-            this.numerator -= other.numerator;
+            this.Numerator -= other.Numerator;
             return this.Simplify();
         }
 
         public Fraction Multiply(Fraction other) {
-            this.numerator *= other.numerator;
-            this.denominator *= other.denominator;
+            this.Numerator *= other.Numerator;
+            this.Denominator *= other.Denominator;
             return this.Simplify();
         }
 
         public Fraction Divide(Fraction other) {
-            this.numerator *= other.denominator;
-            this.denominator *= other.numerator;
+            this.Numerator *= other.Denominator;
+            this.Denominator *= other.Numerator;
             return this.Simplify();
         }
 
         public Fraction Negate() {
-            this.numerator *= -1;
+            this.Numerator *= -1;
             return this;
         }
 
         public Fraction CommonDenom(Fraction other) {
-            int commonDenom = this.denominator * other.denominator;
-            this.numerator *= other.denominator;
-            other.numerator *= this.denominator;
-            this.denominator = commonDenom;
-            other.denominator = commonDenom;
+            int commonDenom = this.Denominator * other.Denominator;
+            this.Numerator *= other.Denominator;
+            other.Numerator *= this.Denominator;
+            this.Denominator = commonDenom;
+            other.Denominator = commonDenom;
             return this;
         }
 
         public Fraction Simplify() {
-            int factor = GCF(this.numerator, this.denominator);
-            this.numerator /= factor;
-            this.denominator /= factor;
+            int factor = GCF(this.Numerator, this.Denominator);
+            this.Numerator /= factor;
+            this.Denominator /= factor;
             return this;
         }
 
