@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlagsOfTheWorldApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="900" Width="1200" ResizeMode="NoResize">
+    <StackPanel VerticalAlignment="Stretch" Height="900">
+        <Button Content="FlagView" Click="OnClick"/>
+        <Button Content="QuizView" Click="OnClick"/>
+        <ContentControl Content="{Binding CurrentView}"/>
+    </StackPanel>
 </Window>

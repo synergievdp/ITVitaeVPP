@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,19 +13,19 @@ using System.Windows.Shapes;
 
 namespace FlagsOfTheWorldApp {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for QuizView.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public ViewModel viewModel;
-        public MainWindow() {
+    public partial class QuizView : UserControl {
+        ViewModel viewModel;
+        public QuizView(ViewModel viewModel) {
             InitializeComponent();
 
-            viewModel = new ViewModel();
+            this.viewModel = viewModel;
             DataContext = viewModel;
         }
 
-        void OnClick(object sender, EventArgs e) {
-            viewModel.OnClick(sender, e);
+        public void OnRadioButton(object sender, EventArgs e) {
+            viewModel.OnRadioButton(sender, e);
         }
     }
 }

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="FlagsOfTheWorldApp.QuizView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlagsOfTheWorldApp"
+             mc:Ignorable="d">
+    <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5,5,5,5">
+        <Label HorizontalContentAlignment="Center" Content="{Binding QuizScore}" Margin="5,5,5,5"/>
+        <Image Source="{Binding Quiz.Question.ImagePath}" Height="200" Width="300" Margin="5,5,5,5"/>
+        <ItemsControl ItemsSource="{Binding Quiz.Current}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Content="{Binding CountryName}" Click="OnRadioButton" Margin="5,5,5,5"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Label HorizontalContentAlignment="Center" Content="{Binding QuizMessage}" Margin="5,5,5,5"/>
+    </StackPanel>
+</UserControl>
