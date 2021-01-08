@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <TextBox Text="{Binding Input}" MinLines="5" TextWrapping="Wrap" Margin="5,5,5,5"/>
-        <Button Content="Count" Click="OnClick"/>
+        <Button Name="Open" Content="Open File" Click="OnClick"/>
+        <ScrollViewer Height="300">
+            <TextBox Text="{Binding Input}" MinLines="5" TextWrapping="Wrap" Margin="5,5,5,5"/>
+        </ScrollViewer>
+        <Button Name="Count" Content="Count" Click="OnClick"/>
+        <ScrollViewer Height="100">
         <ItemsControl ItemsSource="{Binding Freqs}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -24,6 +28,6 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        
+        </ScrollViewer>
     </StackPanel>
 </Window>
