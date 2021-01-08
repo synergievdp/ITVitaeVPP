@@ -1,0 +1,18 @@
+﻿<Window x:Class="MorseCodeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MorseCodeApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="800" SizeToContent="Height">
+    <StackPanel>
+        <TextBox MinLines="5" TextWrapping="Wrap" FontFamily="Consolas" FontSize="16" Text="{Binding Input, Mode=TwoWay}" Margin="5,5,5,5"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="Morse" Content="To Morse" Click="OnClick" Margin="5,5,5,5"/>
+            <Button Name="Alpha" Content="To Alpha" Click="OnClick" Margin="5,5,5,5"/>
+            <Button Name="Copy" Content="Copy Output To Clipboard" Click="OnClick" Margin="5,5,5,5"/>
+        </StackPanel>
+        <TextBox FontFamily="Consolas" TextWrapping="Wrap" FontSize="16" IsReadOnly="True" Text="{Binding Output}" Margin="5,5,5,5"/>
+    </StackPanel>
+</Window>
