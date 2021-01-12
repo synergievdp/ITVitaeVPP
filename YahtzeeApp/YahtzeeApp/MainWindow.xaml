@@ -17,9 +17,7 @@
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <ComboBox SelectedIndex="0" ItemsSource="{Binding PlayersBox}" Style="{StaticResource Base}"/>
-            <Button Content="Start New Game" Click="OnStart" Style="{StaticResource Base}"/>
-            <Label Content="{Binding Yahtzee.CurrentPlayer}" Style="{StaticResource Base}"/>
+            <Label Content="{Binding Yahtzee.CurrentPlayer.index}" Style="{StaticResource Base}"/>
             <Label Content="{Binding Yahtzee.Rolls}" Style="{StaticResource Base}"/>
         </StackPanel>
         <ItemsControl ItemsSource="{Binding Yahtzee.Dice}">
@@ -36,50 +34,18 @@
         </ItemsControl>
         <Button Content="Roll Dice" Click="OnRoll" Style="{StaticResource Base}"/>
         <Button Content="Skip Turn" Click="OnSkip" Style="{StaticResource Base}"/>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="Aces"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Twos"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Threes"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Fours"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="Fives"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="Six"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="Sum"/>
-            <Label Grid.Row="7" Grid.Column="0" Content="Bonus"/>
-            <Label Grid.Row="9" Grid.Column="0" Content="Three Of A Kind"/>
-            <Label Grid.Row="10" Grid.Column="0" Content="Four Of A Kind"/>
-            <Label Grid.Row="11" Grid.Column="0" Content="Small Straight"/>
-            <Label Grid.Row="12" Grid.Column="0" Content="Large Straight"/>
-            <Label Grid.Row="13" Grid.Column="0" Content="Full House"/>
-            <Label Grid.Row="14" Grid.Column="0" Content="Chance"/>
-            <Label Grid.Row="15" Grid.Column="0" Content="Yahtzee"/>
-            <Label Grid.Row="16" Grid.Column="0" Content="Total"/>
-        </Grid>
+        <Label Content="{Binding Message}"  HorizontalAlignment="Center" Style="{StaticResource Base}"/>
+        <ItemsControl ItemsSource="{Binding ScoreCards}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid MouseDown="OnScore" Columns="{Binding Columns}" Margin="5,5,5,5"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}" Style="{StaticResource Base}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </StackPanel>
 </Window>
