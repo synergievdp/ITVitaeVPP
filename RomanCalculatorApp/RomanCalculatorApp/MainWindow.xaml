@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RomanCalculatorApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Width="600" SizeToContent="Height">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{Binding Operation}" FontSize="32"/>
+            <Label Content="{Binding Output}" FontSize="32"/>
+        </StackPanel>
+        <Label Content="{Binding Input}" FontSize="32"/>
+        <ItemsControl ItemsSource="{Binding Buttons}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding}" FontSize="32" Click="OnClick"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
 </Window>
