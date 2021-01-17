@@ -8,4 +8,6 @@
 [x] Calculate cabfare over multiple days
 
 [ ] View
-	[ ] TimePicker
+	[x] TimePicker
+	
+[ ] ViewModel
