@@ -26,15 +26,33 @@ namespace CabFareApp {
         }
 
         public TimeSpan GetWorkHours(DateTime start, DateTime end) {
+            TimeSpan workhours = new TimeSpan();
             TimeSpan startTime = start.TimeOfDay;
-            TimeSpan endTime = end.TimeOfDay;
+            DateTime tomorrow = new DateTime(start.Year, start.Month, start.Day + 1);
 
-            if (endTime > StartWork && startTime < EndWork) {
-                if (startTime < StartWork) startTime = StartWork;
-                if (endTime > EndWork) endTime = EndWork;
+            while (end >= tomorrow) {
+                TimeSpan endTime = new TimeSpan(24, 0, 0);
 
-                return endTime - startTime;
+                workhours += GetWorkHours(startTime, endTime);
+
+                startTime = TimeSpan.Zero;
+                tomorrow = tomorrow.AddDays(1);
+            }
+
+            if (end <= tomorrow) {
+                workhours += GetWorkHours(startTime, end.TimeOfDay);
+            }
+
+            return workhours;
+        }
+
+        public TimeSpan GetWorkHours(TimeSpan start, TimeSpan end) {
+            if (end > StartWork && start < EndWork) {
+                if (start < StartWork) start = StartWork;
+                if (end > EndWork) end = EndWork;
+                return end - start;
             } else return TimeSpan.Zero;
+            
         }
 
         public bool IsWeekend(DateTime startTime) {
