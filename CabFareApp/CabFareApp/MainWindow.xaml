@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:CabFareApp"
         mc:Ignorable="d"
         Title="MainWindow" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style x:Key="Base" TargetType="FrameworkElement">
+            <Setter Property="Margin" Value="1,1,1,1"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+    </Window.Resources>
     <StackPanel>
-        
+        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
+            <DatePicker Style="{StaticResource Base}" />
+            <local:TimePicker Style="{StaticResource Base}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
+            <DatePicker Style="{StaticResource Base}"/>
+            <local:TimePicker Style="{StaticResource Base}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
+            <TextBlock Text="0" VerticalAlignment="Center"  Style="{StaticResource Base}"/>
+            <Label Content="kilometers" Style="{StaticResource Base}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
+            <Label Content="€0.00" Style="{StaticResource Base}"/>
+            <Button Content="Calculate" Style="{StaticResource Base}"/>
+        </StackPanel>
     </StackPanel>
 </Window>

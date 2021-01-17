@@ -7,7 +7,7 @@
 	[x] if ride starts between Friday 10PM and Monday 7AM, multiply by 15%
 [x] Calculate cabfare over multiple days
 
-[ ] View
+[x] View
 	[x] TimePicker
 	
 [ ] ViewModel
