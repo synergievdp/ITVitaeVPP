@@ -11,3 +11,7 @@
 	[x] TimePicker
 	
 [ ] ViewModel
+	[x] RelayCommand
+
+[ ] Binding
+[ ] Redo View
