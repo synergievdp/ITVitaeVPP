@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CabFareApp"
              mc:Ignorable="d">
     <StackPanel Orientation="Horizontal">
-        <ComboBox ItemsSource="{Binding Hours}" SelectedValue="{Binding Hour}"/>
-        <ComboBox ItemsSource="{Binding Minutes}" SelectedValue="{Binding Minute}"/>
+        <ComboBox ItemsSource="{Binding Hours}" SelectedValue="{Binding Hour}" ItemStringFormat="D2"/>
+        <ComboBox ItemsSource="{Binding Minutes}" SelectedValue="{Binding Minute}" ItemStringFormat="D2"/>
     </StackPanel>
 </UserControl>

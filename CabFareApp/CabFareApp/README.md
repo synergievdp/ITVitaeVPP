@@ -16,4 +16,5 @@
 
 [x] Binding
 [x] Redo View
-[ ] Format TimePicker ComboBoxes
+[x] Format TimePicker ComboBoxes
+[ ] Restrict DatePicker
