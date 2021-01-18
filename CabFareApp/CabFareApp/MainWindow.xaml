@@ -8,26 +8,29 @@
         Title="MainWindow" SizeToContent="WidthAndHeight">
     <Window.Resources>
         <Style x:Key="Base" TargetType="FrameworkElement">
-            <Setter Property="Margin" Value="1,1,1,1"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="2,2,2,2"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </Window.Resources>
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
-            <DatePicker Style="{StaticResource Base}" />
-            <local:TimePicker Style="{StaticResource Base}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
-            <DatePicker Style="{StaticResource Base}"/>
-            <local:TimePicker Style="{StaticResource Base}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
-            <TextBlock Text="0" VerticalAlignment="Center"  Style="{StaticResource Base}"/>
-            <Label Content="kilometers" Style="{StaticResource Base}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
-            <Label Content="€0.00" Style="{StaticResource Base}"/>
-            <Button Content="Calculate" Style="{StaticResource Base}"/>
-        </StackPanel>
-    </StackPanel>
+    <Grid Style="{StaticResource Base}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DatePicker Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectedDate="{Binding StartDate}" Style="{StaticResource Base}" />
+            <local:TimePicker Grid.Row="0" Grid.Column="3" DataContext="{Binding StartTimePicker}" Style="{StaticResource Base}"/>
+            <DatePicker Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectedDate="{Binding EndDate}" Style="{StaticResource Base}"/>
+            <local:TimePicker Grid.Row="1" Grid.Column="3" DataContext="{Binding EndTimePicker}" Style="{StaticResource Base}"/>
+            <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Kilometers, FallbackValue='0'}" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Stretch" Style="{StaticResource Base}"/>
+            <Label Grid.Row="2" Grid.Column="2" Content="kilometers"/>
+            <Label Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Content="{Binding Fare, FallbackValue='€0,00'}"/>
+            <Button Grid.Row="3" Grid.Column="2" Content="Calculate" Command="{Binding FareCommand}" Style="{StaticResource Base}"/>
+        </Grid>
 </Window>
