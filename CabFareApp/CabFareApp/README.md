@@ -12,6 +12,8 @@
 	
 [ ] ViewModel
 	[x] RelayCommand
+	[x] TimePicker model
 
 [ ] Binding
 [ ] Redo View
+[ ] Format TimePicker ComboBoxes
