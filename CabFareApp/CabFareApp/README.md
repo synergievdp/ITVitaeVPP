@@ -10,7 +10,7 @@
 [x] View
 	[x] TimePicker
 	
-[ ] ViewModel
+[x] ViewModel
 	[x] RelayCommand
 	[x] TimePicker model
 
