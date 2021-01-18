@@ -5,6 +5,6 @@
     - [x] Max contribution €150   
     - [x] Single parent contribution 25% reduction  
 
-- [ ] View
+- [x] View
 
 - [ ] ViewModel       
