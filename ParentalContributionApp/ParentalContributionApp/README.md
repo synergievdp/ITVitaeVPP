@@ -7,4 +7,5 @@
 
 - [x] View
 
-- [ ] ViewModel       
+- [x] ViewModel    
+- [ ] Bindings   
