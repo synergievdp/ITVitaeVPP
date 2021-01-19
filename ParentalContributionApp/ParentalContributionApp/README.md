@@ -8,4 +8,4 @@
 - [x] View
 
 - [x] ViewModel    
-- [ ] Bindings   
+- [x] Bindings   

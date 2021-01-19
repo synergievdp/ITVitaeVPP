@@ -14,21 +14,30 @@
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
-            <DatePicker Style="{StaticResource Base}"/>
-            <Button Content="Add Child" Style="{StaticResource Base}"/>
-            <CheckBox Content="Single Parent" Style="{StaticResource Base}"/>
+            <DatePicker SelectedDate="{Binding ChildDOB}" Style="{StaticResource Base}"/>
+            <Button Content="Add Child" Command="{Binding AddCommand}" Style="{StaticResource Base}"/>
+            <CheckBox Content="Single Parent" IsChecked="{Binding IsSingleParent}" Style="{StaticResource Base}"/>
         </StackPanel>
-        <ItemsControl Style="{StaticResource Base}">
+        <ItemsControl ItemsSource="{Binding ChildrenDOB}" Style="{StaticResource Base}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Label Style="{StaticResource Base}"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Name="DOB" Content="{Binding}" Style="{StaticResource Base}"/>
+                        <Button Content="Remove" Command="{Binding Path=DataContext.RemoveCommand, 
+          RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding ElementName=DOB, Path=Content}" Style="{StaticResource Base}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         <StackPanel Orientation="Horizontal" Style="{StaticResource Base}">
-            <DatePicker Style="{StaticResource Base}"/>
-            <Button Content="Calculate" Style="{StaticResource Base}"/>
-            <Label Content="€ 0.00" Style="{StaticResource Base}"/>
+            <DatePicker SelectedDate="{Binding ReferenceDate}" Style="{StaticResource Base}"/>
+            <Button Content="Calculate" Command="{Binding CalculateCommand}" Style="{StaticResource Base}"/>
+            <Label Content="{Binding Contribution}" Style="{StaticResource Base}"/>
         </StackPanel>
     </StackPanel>
 </Window>
